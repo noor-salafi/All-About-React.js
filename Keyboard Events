@@ -1,0 +1,34 @@
+import React from 'react'
+
+function Keyboard() {
+
+    const OnKeyDownText = () => {
+        console.log("Key pressed");       
+    }
+
+
+    const OnKeyPress = () => {
+        console.log("Key pressed");       
+    }
+
+
+    const OnKeyUp = () => {
+        console.log("Key up");       
+    }
+
+
+  return (
+    <div>
+
+        <h2>Keyboard Event</h2>
+
+        <input type="text" onKeyDown ={OnKeyDownText} /> 
+
+        <input type="text" onKeyPress ={OnKeyPress} />
+
+        <input type="text" onKeyUp ={OnKeyUp} />
+
+    </div>
+  )
+}
+export default Keyboard;
