@@ -1,0 +1,33 @@
+import React from 'react'
+
+🟢 Focus event works when we trigger on input; the focus event will fire.
+
+function Focus() {
+        const FocusText = () => {
+            console.log
+            ("You have focused on input");
+        };
+  return (
+    <div>
+        <h1>Focus Event</h1>
+        <input type="text" onFocus={FocusText} placeholder='write here' />
+    </div>
+  );
+};
+export default Focus;
+
+
+🟢 Blur event works when we trigger out of an input, the blur event will fire.
+function Blur() {
+        const BlurText = () => {
+            console.log
+            ("You have blurred on input");
+        };
+  return (
+    <div>
+        <h1>Focus Event</h1>
+        <input type="text" onBlur ={BlurText} placeholder='write here' />
+    </div>
+  );
+};
+export default Blur;
