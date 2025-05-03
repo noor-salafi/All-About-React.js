@@ -31,3 +31,6 @@ import React, { Component } from 'react'
   }
 };
 export default Home;
+
+shortCut for create functional Component;
+rcc;
