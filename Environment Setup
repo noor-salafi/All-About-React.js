@@ -1,0 +1,7 @@
+🟢 React Environment Setup :
+
+Step 1: Install Node.js from nodejs.org 
+Step 2: Open terminal and run:⬇️
+npx create-react-app my-app 
+cd my-app 
+npm start
