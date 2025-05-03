@@ -1,0 +1,38 @@
+import React from 'react'
+
+function Clipboard() {
+
+    //🟢 when someone copy anything in my website then this onCopy alert will be fire⬇️
+    const OnCopyText = () =>{
+        alert("Text Copied");
+    };
+
+
+    //🟢 when someone cut anything in my website then this onCut alert will be fire⬇️
+    const OnCutText = () =>{
+        console.log("Text cut successful.");       
+    };
+
+
+    //🟢 when someone paste anything in my website then this onPaste alert will be fire⬇️
+    const OnPasteText = () =>{
+        alert("Text pasted done");   
+    }
+    //other method if we show this onPaste alert in browser.
+    //For showing message in browser
+    // const OnPasteText = () =>{
+    //     document.write("Text pasted done");   
+    // }
+
+
+  return (
+    <>
+        <p onCopy ={OnCopyText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, aut.</p>
+        <h1 onCut ={OnCutText}>Lorem ipsum dolor sit amet.</h1>
+
+        <input type="text" onPaste ={OnPasteText} placeholder='put your text here'/>        
+    </>
+  )
+}
+
+export default Clipboard;
