@@ -1,0 +1,135 @@
+import React, { Component } from 'react'  // Importing React and Component class from react package
+
+// Creating a class component named EventHandler
+class EventHandler extends Component {
+
+    // Declaring state to hold form data values
+    state = {
+        ChannelName: "",     // Holds the channel name
+        Subscriber: "",      // Holds the number of subscribers
+        Category: "",        // Holds the selected category
+        CreationDate: "",    // Holds the selected date
+        About: "",           // Holds the about information
+        Gender: "",          // Holds the selected gender
+        checkbox: false      // Holds the checkbox state (true/false)
+    };
+
+    // This method handles all text, select, radio, and textarea input changes
+    FromChange = (event) => {
+        // Updating state using computed property name
+        this.setState({
+            [event.target.name]: event.target.value  // Dynamically updating the corresponding field
+        })    
+    }
+
+    // This method specifically handles checkbox state changes
+    CheckBoxHandler = (event) => {
+        this.setState({
+            checkbox: event.target.checked  // Updating checkbox value (true or false)
+        })        
+    }
+
+    // Render method outputs the JSX to display UI
+    render() {
+        // Destructuring state to get values directly
+        const { ChannelName, Subscriber, Category, CreationDate, About, checkbox } = this.state;
+        
+        return (
+            <div className='container'>  {/* Bootstrap container */}
+
+                {/* Input for channel name */}
+                <input 
+                    type="text" 
+                    name='ChannelName' 
+                    placeholder='Channel name' 
+                    className='form-control' 
+                    onChange={this.FromChange}  // Event handler for change
+                    value={ChannelName}         // Controlled input value
+                />
+
+                {/* Input for subscriber count */}
+                <input 
+                    type="text" 
+                    name='Subscriber' 
+                    placeholder='Total subscriber' 
+                    className='form-control' 
+                    onChange={this.FromChange} 
+                    value={Subscriber} 
+                />
+
+                {/* Select dropdown for category */}
+                <select 
+                    name="Category" 
+                    onChange={this.FromChange} 
+                    value={Category}  
+                    className='form-control'
+                >
+                    <option value="Select Category">Select Category</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Education">Education</option>
+                    <option value="Entertainment">Entertainment</option>
+                </select>
+
+                {/* Date input for channel creation date */}
+                <input 
+                    className='form-control' 
+                    type="date" 
+                    name='CreationDate' 
+                    onChange={this.FromChange} 
+                    value={CreationDate} 
+                />
+
+                {/* Textarea for about info */}
+                <textarea 
+                    className='form-control' 
+                    name="About" 
+                    onChange={this.FromChange} 
+                    placeholder='Tell me about yourself' 
+                    value={About} 
+                ></textarea>
+
+                {/* Radio buttons for gender selection */}
+                <div>
+                    <input 
+                        type="radio" 
+                        value="male" 
+                        name='Gender' 
+                        onChange={this.FromChange} 
+                    />
+                    <label htmlFor="Gender">Male</label>
+
+                    <input 
+                        type="radio" 
+                        value="female" 
+                        name='Gender' 
+                        onChange={this.FromChange} 
+                    />
+                    <label htmlFor="Gender">Female</label>
+                </div>
+
+                {/* Checkbox input for agreement */}
+                <input 
+                    type="checkbox" 
+                    name='checkbox' 
+                    checked={checkbox}       // Controlled checkbox
+                    onChange={this.CheckBoxHandler}  // Specific handler
+                />
+                <label htmlFor="checkbox">Agree & Continue</label>
+
+                <br />
+
+                {/* Submit button to log current state in console */}
+                <button 
+                    className='btn btn-primary' 
+                    onClick={() => console.log(this.state)}  // Log full form state on click
+                >
+                    Submit
+                </button>
+
+            </div>
+        )
+    }
+}
+
+// Exporting the component for use in other files
+export default EventHandler;
